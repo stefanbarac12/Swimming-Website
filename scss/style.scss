@@ -1,0 +1,517 @@
+@import 'starter';
+@import 'mixins';
+
+// --- nav ---
+nav {
+    @include flex(space-between, center);
+
+    .logo {
+        color: $blue;
+        font-size: 3rem;
+        font-weight: 500;
+    }
+
+    span {
+        position: relative;
+        top: -20px;
+        font-size: 2rem;
+        top: -0.5em;
+    }
+
+    ul {
+        @include flex(center, center);
+        flex: 0 0 60%;
+
+        li {
+            flex: 1;
+            text-align: center;
+            padding: 60px 0px;
+            cursor: pointer;
+            transition: $transition;
+
+            &:hover {
+                background: $navlinks2;
+                color: $white;
+            }
+
+            a {
+                font-family: $headings;
+                font-weight: 500;
+                font-size: 1.2rem;
+            }
+        }
+    }
+}
+
+// --- header ---
+header {
+    @include bg(url(../img/header.png), cover);
+    height: 100vh;
+}
+
+// --- services ---
+.services {
+    @include flex(space-between, stretch);
+    margin-bottom: 80px;
+
+    article {
+        flex: 0 0 22%;
+        padding: 30px;
+        color: $white;
+        margin-top: -10%;
+        position: relative;
+        cursor: pointer;
+        transition: $transition;
+
+        &:hover {
+        transform: translateY(-40px);
+        box-shadow: 6px 6px 10px $black;
+
+        }
+
+        h2 {          
+            font-weight: 600;
+        }
+
+        p {
+            line-height: 1.5;
+            margin: 30px 0;
+            font-size: 1.4rem;
+            color: #f1f1f1c7;
+            padding-right: 50px;
+        }
+
+        i {
+            position: absolute;
+            font-size: 3rem;
+            color: $white;
+            bottom: 65px;
+            right: 30px;
+            transition: $transition;
+        }
+
+        &:nth-child(1) {
+            background: linear-gradient(-135deg, $orange, $lightorange);
+        }
+
+        &:nth-child(2) {
+            background: linear-gradient(-135deg, $navlinks2, $navlink1);
+        }
+
+        &:nth-child(3) {
+            background: linear-gradient(-135deg, $red, $lightred);
+        }
+
+        &:nth-child(4) {
+            background: linear-gradient(-135deg, $violet, $lightviolet);
+        }
+    }
+}
+
+// --- about ---
+.about {
+    article {
+        @include flex(space-between, stretch);
+        margin-bottom: 60px;
+
+        div {
+            flex: 0 0 49%;
+
+            &:first-child {
+                background-color: $lightgray;
+                padding: 150px 60px 0 ;
+    
+                p {
+                    font-size: 1.5rem;
+                    padding: 30px 0;
+                }
+
+                h2 {
+                    font-family: $headings;
+                }
+
+                button {
+                    @include btn(linear-gradient(to right, $orange, $lightred), $white, $black, $white);
+                }
+            }
+        }
+
+        &:last-child{
+            div:first-child {
+                order: 1;
+            }
+        }
+    }
+}
+
+// --- why-swimming
+.why-swimming {
+    @include bg(url(../img/swimer2.png), cover);
+    height: 100vh;
+
+    .redish {
+        background: linear-gradient(rgba($lightred, 0.9), rgba($red, 0.9));
+        color: $white;
+        width: 45%;
+        margin-left: 5%;
+        padding: 40px 80px;
+        height: 100%;
+
+        h2 {
+            padding: 20px 0;
+        }
+
+        p {
+            padding: 20px 0;
+            font-size: 1.6rem;
+        }
+
+        button {
+            margin-top: 120px;
+            @include btn($white, $black, $black, $white);
+        }
+    }
+}
+
+// --- events ---
+.events {
+    @include flex(space-between, stretch);
+    margin-top: 60px;
+    color: $white;
+    margin-bottom: 60px;
+
+    article {
+        flex: 0 0 49%;
+
+        &:first-child {
+            background: linear-gradient(rgba($lightorange, 0.9), rgba($orange, 0.9));
+            padding: 120px 80px 0px;
+
+            h2 {
+                margin-bottom: 60px;
+            }
+
+            ul {
+                padding-left: 60px;
+
+                li {
+                    line-height: 2.5;
+                    font-size: 1.6rem;
+                    position: relative;
+
+                    &::before {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        height: 1em;
+                        width: 1em;
+                        top: 50%;
+                        left: -10%;
+                        transform: translateY(-50%);
+                        @include bg(url(../img/arrow-circle.png), cover);
+                    }
+                }
+            }
+        }
+    }      
+}
+
+// --- players ---
+.players {
+    @include flex(space-between, stretch);
+    margin-bottom: 100px;
+
+    article {
+        @include flex(space-between, center, column);
+        flex: 0 0 23%;
+
+        div:first-child {
+            width: 50%;
+            margin: 0 auto;
+
+            img {
+                border-radius: 50%;
+                position: relative;
+                top: 80px;
+            }
+        }
+
+        div:last-child {
+            @include flex(space-between, flex-start, column);
+            background: $lightgray;
+            padding: 45px;
+            flex: 1;
+            padding: 30px;
+        
+            p {
+                color: $text;
+                flex: 1;
+                font-size: 1.6rem;
+                padding-top: 100px;
+            }
+
+            h3 {
+                margin-top: 30px;
+                color: $orange;
+                font-size: 2.5rem;
+                font-weight: 400;
+            }
+        }
+    }
+}
+
+// --- contacts ---
+.contacts {
+    @include flex(space-between, stretch);
+
+    article {
+        flex: 0 0 49%;
+
+        &:first-child {
+            background: linear-gradient(rgba($navlinks2, 0.9), rgba($blue, 0.9));
+            padding: 90px;
+            color: $white;
+
+            p {
+                padding: 20px 0;
+                font-size: 1.6rem;
+            }
+
+            h3 {
+                font-size: 3rem;
+                font-weight: 100;
+                padding: 10px 0;
+
+                i {
+                    padding: 12px 20px;
+                    background-color: $white;
+                    color: $navlinks2;
+                    border-radius: 50%;
+                    font-size: 3.5rem;
+                    cursor: pointer;
+                }
+            }
+
+            i {
+                font-size: 2rem;
+                background-color: $white;
+                color: $navlinks2;
+                padding: 12px;
+                border-radius: 50%;
+                margin: 0 10px;
+                transition: $transition;
+
+                &:hover {
+                    background-color: transparent;
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+
+// --- footer ---
+footer {
+    text-align: center;
+    padding: 200px 0 100px;
+
+    p {
+        color: rgba($text, 0.6);
+        font-size: 2rem;
+    }
+}
+
+// --- responsive for mobiles ---
+@media (max-width: 767px) {
+    .wrapper {
+        display: inline-block;
+        cursor: pointer;
+        position: absolute;
+        right: 10%;
+        top: 2%;
+        z-index: 200;
+    }
+
+    .bar1, .bar2, .bar3 {
+        width: 35px;
+        height: 5px;
+        background: $navlinks2;
+        margin: 6px 0;
+        transition: 0.4s;
+    }
+    
+    .change .bar1 {
+        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+        transform: rotate(-45deg) translate(-9px, 6px);
+    }
+    
+    .change .bar2 {opacity: 0;}
+    
+    .change .bar3 {
+        -webkit-transform: rotate(45deg) translate(-8px, -8px);
+        transform: rotate(45deg) translate(-8px, -8px);
+    }
+
+
+nav {
+    @include flex(space-between, flex-start, column);
+
+    ul {
+        @include flex(center, center, column);
+        position: absolute;
+        right: -100%;
+        transition: 0.5s ease-out;
+        background-color: $white;
+        width: 100%;
+        top: 30%;
+
+        &.show {
+            transition: 0.5s ease-in;
+            right: 0;
+        }
+
+        li {
+            flex: 1;
+            padding: 20px 0px;
+        }
+    }
+}
+
+// --- header ---
+header {
+    @include bg(url(../img/header.png), cover);
+    height: 100vh;
+}
+
+// --- services ---
+.services {
+    article {
+        flex: 0 0 100%;
+        margin-bottom: 70px;
+
+        &:first-child {
+            margin-top: -50%;
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+    }
+}
+
+// --- about ---
+.about {
+    article {
+        div {
+            flex: 0 0 100%;
+
+            &:first-child {
+                padding: 50px 20px 0;
+    
+                p {
+                    font-size: 1.2rem;
+                }
+
+                button {
+                    margin-bottom: 30px;
+                }
+            }
+        }
+
+        &:last-child{
+            div:first-child {
+                order: 0;
+            }
+        }
+    }
+}
+
+// --- why-swimming
+.why-swimming {
+    .redish {
+        width: 90%;
+        padding: 40px 20px;
+
+        p {
+            font-size: 1.2rem;
+        }
+
+        button {
+            margin-top: 40px;
+        }
+    }
+}
+
+// --- events ---
+.events {
+    article {
+        flex: 0 0 100%;
+
+        &:first-child {
+            padding: 70px 30px 40px;
+
+            ul {
+                padding-left: 40px;
+
+                li {
+                    font-size: 1.2rem;
+
+                    &::before {
+                        top: 25%;
+                        left: -15%;
+                    }
+                }
+            }
+        }
+    }      
+}
+
+// --- players ---
+.players {
+    article {
+        flex: 0 0 100%;
+    }
+}
+
+// --- contacts ---
+.contacts {
+    @include flex(space-between, stretch);
+
+    article {
+        flex: 0 0 100%;
+
+        &:first-child {
+            padding: 30px;
+
+            p {
+                font-size: 1.2rem;
+            }
+
+            h3 {
+                font-size: 1.7rem;
+
+                i {
+                    padding: 12px;
+                    font-size: 1.5rem;
+                }
+            }
+
+            i {
+                font-size: 1.5rem;
+                padding: 12px;
+            }
+        }
+    }
+}
+
+// --- footer ---
+footer {
+    text-align: center;
+    padding: 150px 0 100px;
+
+    p {
+        color: rgba($text, 0.6);
+        font-size: 1.2rem;
+    }
+}
+}
